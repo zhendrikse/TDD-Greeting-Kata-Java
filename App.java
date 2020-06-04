@@ -2,12 +2,17 @@
  * Hello world!
  */
 public class App {
-    public String greetVisitor(final String name){
-        return createGreeting(name);
+    public String greetVisitor(final String ... name) {
+        if (name == null) {
+            return createGreeting("my friend");
+        } else if (name.length == 1) {
+            return createGreeting(name[0]);
+        } else {
+            throw new UnsupportedOperationException();
+        }
     }
 
-    private String createGreeting(final String name) {
-        final String visitor = (name == null) ? "my friend" : name;
+    private String createGreeting(final String visitor) {
         final String hello = isStringUpperCase(visitor) ? "HELLO " : "Hello, ";
         final String endChar = isStringUpperCase(visitor) ? "!" : ".";
         return hello + visitor + endChar;
