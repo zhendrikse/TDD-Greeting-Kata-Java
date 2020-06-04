@@ -10,9 +10,15 @@ public class AppTest {
   public void testGreetVisitorSimpleHelloPositiveCase() {
     assertEquals("Hello, Bob.", classUnderTest.greetVisitor("Bob"));
   }
+
   @Test
   //@DisplayName("Test if the method is able to handle null input")
   public void testGreetVisitorNullAsInput() {
     assertEquals("Hello, my friend.", classUnderTest.greetVisitor(null));
+  }
+
+  @Test
+  public void testGreetVisitorShouting() {
+    assertEquals("HELLO BOB!", classUnderTest.greetVisitor("BOB"));
   }
 }
