@@ -6,10 +6,12 @@ public class App {
         if (name == null) {
             return createGreeting("my friend");
         } else if (name.length == 1) {
-            return createGreeting(name[0]);
+            final String visitor = name[0].equals("") ? "my friend" : name[0];
+            return createGreeting(visitor);
         } else {
-            throw new UnsupportedOperationException();
+            return createGreeting(name[0] + " and " + name[1]);
         }
+        
     }
 
     private String createGreeting(final String visitor) {

@@ -21,7 +21,17 @@ public class AppTest {
     }
 
     @Test
+    public void testGreetVisitorEmptyNameAsInput() {
+        assertEquals("Hello, my friend.", classUnderTest.greetVisitor(""));
+    }
+
+    @Test
     public void testGreetVisitorShouting() {
         assertEquals("HELLO BOB!", classUnderTest.greetVisitor("BOB"));
+    }
+
+    @Test
+    public void testGreetTwoVisitors() {
+        assertEquals("Hello, Jill and Jane.", classUnderTest.greetVisitor("Jill", "Jane"));
     }
 }
