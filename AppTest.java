@@ -17,7 +17,7 @@ public class AppTest {
     @Test
     // @DisplayName("Test if the method is able to handle null input")
     public void testGreetVisitorNullAsInput() {
-        assertEquals("Hello, my friend.", classUnderTest.greetVisitor(null));
+        assertEquals("Hello, my friend.", classUnderTest.greetVisitor((String[]) null));
     }
 
     @Test
