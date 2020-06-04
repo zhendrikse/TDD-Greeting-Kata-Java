@@ -6,7 +6,7 @@ public class App {
         return createGreeting(createVisitorList(names));
     }
 
-    private String createVisitorList(final String ... names) {
+    private String createVisitorList(final String... names) {
         if (names == null) {
             return "my friend";
         } else if (names.length == 1) {
@@ -14,18 +14,22 @@ public class App {
         } else if (names.length == 2) {
             return names[0] + " and " + names[1];
         } else {
-            final StringBuilder visitors = new StringBuilder();
-            for (int i = 0; i < names.length; i++) {
-                visitors.append(names[i]);
-                if (i != names.length - 1) {
-                    visitors.append(", ");
-                }
-                if (i == names.length - 2) {
-                    visitors.append("and ");
-                }
-            }
-            return visitors.toString();
+            return concatenateMultipleNames(names);
         }
+    }
+
+    private String concatenateMultipleNames(final String... names) {
+        final StringBuilder visitors = new StringBuilder();
+        for (int i = 0; i < names.length; i++) {
+            visitors.append(names[i]);
+            if (i != names.length - 1) {
+                visitors.append(", ");
+            }
+            if (i == names.length - 2) {
+                visitors.append("and ");
+            }
+        }
+        return visitors.toString();
     }
 
     private String createGreeting(final String visitor) {
