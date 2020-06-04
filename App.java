@@ -2,16 +2,30 @@
  * Hello world!
  */
 public class App {
-    public String greetVisitor(final String... name) {
-        if (name == null) {
-            return createGreeting("my friend");
-        } else if (name.length == 1) {
-            final String visitor = name[0].equals("") ? "my friend" : name[0];
-            return createGreeting(visitor);
+    public String greetVisitor(final String... names) {
+        return createGreeting(createVisitorList(names));
+    }
+
+    private String createVisitorList(final String ... names) {
+        if (names == null) {
+            return "my friend";
+        } else if (names.length == 1) {
+            return names[0].equals("") ? "my friend" : names[0];
+        } else if (names.length == 2) {
+            return names[0] + " and " + names[1];
         } else {
-            return createGreeting(name[0] + " and " + name[1]);
+            final StringBuilder visitors = new StringBuilder();
+            for (int i = 0; i < names.length; i++) {
+                visitors.append(names[i]);
+                if (i != names.length - 1) {
+                    visitors.append(", ");
+                }
+                if (i == names.length - 2) {
+                    visitors.append("and ");
+                }
+            }
+            return visitors.toString();
         }
-        
     }
 
     private String createGreeting(final String visitor) {

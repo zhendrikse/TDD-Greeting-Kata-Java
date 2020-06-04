@@ -34,4 +34,9 @@ public class AppTest {
     public void testGreetTwoVisitors() {
         assertEquals("Hello, Jill and Jane.", classUnderTest.greetVisitor("Jill", "Jane"));
     }
+
+    @Test
+    public void testGreetThreeVisitors() {
+        assertEquals("Hello, Amy, Brian, and Charlotte.", classUnderTest.greetVisitor("Amy", "Brian", "Charlotte"));
+    }
 }
